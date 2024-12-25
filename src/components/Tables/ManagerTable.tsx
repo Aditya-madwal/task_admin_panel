@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import { Edit, Eye, Trash2 } from "lucide-react";
 
 interface MANAGER {
   picture: string;
@@ -142,11 +143,11 @@ const ManagersTable = () => {
       <div className="flex flex-col">
         {/* Table Header */}
         <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
-          <div className="p-2.5 xl:p-5">
+          {/* <div className="p-2.5 xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
               Picture
             </h5>
-          </div>
+          </div> */}
           <div className="p-2.5 xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
               Full Name
@@ -167,6 +168,11 @@ const ManagersTable = () => {
               Phone Number
             </h5>
           </div>
+          <div className="hidden p-2.5 text-center sm:block xl:p-5">
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Actions
+            </h5>
+          </div>
         </div>
 
         {/* Table Body */}
@@ -179,7 +185,7 @@ const ManagersTable = () => {
             }`}
             key={key}
           >
-            <div className="flex items-center gap-3 p-2.5 xl:p-5">
+            {/* <div className="flex items-center gap-3 p-2.5 xl:p-5">
               <div className="flex-shrink-0">
                 <Image
                   src={manager.picture}
@@ -188,7 +194,7 @@ const ManagersTable = () => {
                   height={48}
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="flex items-center p-2.5 xl:p-5">
               <p className="text-black dark:text-white">{manager.fullName}</p>
@@ -206,6 +212,26 @@ const ManagersTable = () => {
               <p className="text-black dark:text-white">
                 {manager.phoneNumber}
               </p>
+            </div>
+            <div className="hidden items-center justify-center gap-2 p-2.5 sm:flex xl:p-5">
+              <button
+                title="Edit"
+                className="text-primary hover:text-black dark:hover:text-white"
+              >
+                <Edit size={20} />
+              </button>
+              <button
+                title="View"
+                className="text-meta-3 hover:text-black dark:hover:text-white"
+              >
+                <Eye size={20} />
+              </button>
+              <button
+                title="Delete"
+                className="text-meta-5 hover:text-black dark:hover:text-white"
+              >
+                <Trash2 size={20} />
+              </button>
             </div>
           </div>
         ))}
